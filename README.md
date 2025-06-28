@@ -68,3 +68,35 @@ pipx install poetry
 ```
 
 Now poetry is installed and ready to be used to install venv and libraries.
+
+Once inside a module, if the pyproject.toml file is not already there, create a new poetry project with:
+
+```
+poetry init
+```
+
+Get the location of the currently active poetry environment and python executable:
+
+```
+poetry env info
+```
+
+Add a new dependency in a poetry project (ipykernel for jupyter notebooks):
+
+```
+poetry add ipykernel
+```
+
+Install and activate the poetry project:
+
+```
+poetry install
+```
+
+Now the dependencies can be added and installed.
+
+Run a python script like test.py with:
+
+```
+poetry run python test.py
+```
