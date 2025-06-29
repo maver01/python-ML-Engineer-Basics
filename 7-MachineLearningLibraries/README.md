@@ -2,9 +2,67 @@
 
 Topics:
 
-## 1. Core Libraries
+## 1. Data Preparation and Feature Engineering
 
-### Scikit-learn
+### 1. Data Cleaning
+
+- Handling Missing Values:
+  - Imputation (mean/median/mode, interpolation).
+  - Removing rows/columns.
+- Outlier Detection and Treatment:
+  - Z-score, IQR methods.
+  - Clipping or transformation.
+- Data Type Conversion:
+  - Converting categorical to numerical.
+  - Ensuring correct data types (dates, floats).
+
+### 2. Data Transformation
+
+- Scaling:
+  - Standardization (z-score).
+  - Min-max normalization.
+  - Robust scaling (less sensitive to outliers).
+- Encoding Categorical Variables:
+  - One-hot encoding.
+  - Label encoding.
+  - Target/mean encoding (with caution).
+- Date/Time Feature Extraction:
+  - Extracting year, month, day, weekday, etc.
+- Text Processing:
+  - Tokenization, stemming, lemmatization.
+  - Vectorization (TF-IDF, embeddings).
+
+### 3. Feature Engineering
+
+- Creating New Features:
+  - Ratios, differences, interactions between variables.
+- Binning:
+  - Converting continuous variables into categories.
+- Polynomial Features:
+  - Generating higher-order terms.
+- Aggregation:
+  - Group-by aggregates (mean, sum).
+
+### 4. Feature Selection
+
+- Filter Methods:
+  - Correlation analysis.
+  - Chi-squared test.
+- Wrapper Methods:
+  - Recursive Feature Elimination (RFE).
+- Embedded Methods:
+  - Regularization (LASSO, Ridge).
+  - Tree-based feature importance.
+
+### 5. Dimensionality Reduction
+
+- Principal Component Analysis (PCA).
+- t-SNE, UMAP for visualization.
+- Truncated SVD for sparse data.
+
+## 2. Core Libraries
+
+### 1. Scikit-learn
 
 Widely used for classical ML algorithms (regression, classification, clustering).
 Consistent API:
@@ -41,7 +99,7 @@ Not ideal for:
 - Large-scale distributed training.
 - Deep learning/neural networks.
 
-### XGBoost / LightGBM / CatBoost
+### 2. XGBoost / LightGBM / CatBoost
 
 Use case: Gradient boosting decision trees (state-of-the-art for tabular data). Highly optimized gradient boosting.
 
@@ -61,7 +119,7 @@ Use when:
 - You need state-of-the-art performance in regression or classification.
 - You want fast training and good handling of missing values.
 
-### TensorFlow, Pytorch
+### 4. TensorFlow, Pytorch
 
 Use case: Deep learning (neural networks).
 
