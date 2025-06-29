@@ -9,5 +9,6 @@ Topics:
   - Sorting, filtering, aggregation.
 - Lambda
 - Use exception handling appropriately.
+- Collections
 
 Run on jupyter notebook.
