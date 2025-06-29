@@ -32,6 +32,31 @@ Topics:
   - Tokenization, stemming, lemmatization.
   - Vectorization (TF-IDF, embeddings).
 
+[link](https://scikit-learn.org/stable/modules/preprocessing.html)
+
+#### Imputers:
+
+- `impute.SimpleImputer`: Use to inpute missing data. Can define strategies like mean or use simple fillna with specified value.
+- `impute.KNNImputer`: Use mean k-Nearest Neighbours to fill missing data. Two samples are close if the features that neither is missing are close.
+- `impute.IterativeImputer`: Multivariate imputer that estimates each feature from all the others. Use round-robin.
+
+#### Scalers:
+
+- `preprocessing.StandardScaler`: Use when the data follows a Gaussian distribution or when you want to compare how many standard deviations a value is from the mean.
+- `preprocessing.normalize`: Use when the data does not follow a Gaussian distribution. It is particularly useful when the features are on different scales and you want to ensure that no single feature dominates the model. Example: text embeddings, when direction is more important than magnitude.
+- `preprocessing.MinMaxScaler`: Use when need robustness to very small standard deviations of features and preserving zero entries in sparse data. Example: pixel values: [0, 128, 255] --> [0, 0.388, 1].
+- `preprocessing.RobustScaler`: Use when there are a lot of outliers. It maintains information relative to the ones close to each other (not outliers).
+- `preprocessing.Binarizer`: Tranform features into binary.
+
+#### Encoders:
+
+- `preprocessing.OneHotEncoder`: Transform categorical features into binary features.
+- `preprocessing.OrdinalEncoder`: Accounts for infrequent features, and combines them into the same category.
+
+#### Non-Linearity:
+
+- `preprocessing.PolynomialFeatures`: Creates new columns with polynomial features: X1, X2 --> X1, X2, X1², X2², X1X2. Can be used to add non-linearity without using non-linear models.
+
 ### 3. Feature Engineering
 
 - Creating New Features:
