@@ -92,9 +92,9 @@ Topics:
 Widely used for classical ML algorithms (regression, classification, clustering).
 Consistent API:
 
+- .transform(X) – preprocess data.
 - .fit(X, y) – train the model.
 - .predict(X) – make predictions.
-- .transform(X) – preprocess data.
 
 Common algorithms:
 
@@ -175,3 +175,57 @@ Use when:
 - You want Pythonic, imperative code that’s easier to debug.
 - You want excellent GPU acceleration with fine-grained control.
 - You are developing models where you expect frequent architectural changes.
+
+## 3. Classic ML, what model to choose:
+
+### 1. Classification with Tabular Data
+
+- Random Forest Classifier – fast, robust, less tuning
+- Gradient Boosting Classifier (e.g., HistGradientBoostingClassifier, XGBoost, LightGBM) – often highest accuracy
+- Logistic Regression – strong baseline
+- MLPClassifier (Neural Net) – if data is large and complex
+
+| Metric                   | What it measures                                         | Notes                                                |
+| ------------------------ | -------------------------------------------------------- | ---------------------------------------------------- |
+| **Accuracy**             | Proportion of correct predictions                        | Simple, but can be misleading for imbalanced classes |
+| **Precision**            | Correct positive predictions / total predicted positives | How many predicted positives are correct             |
+| **Recall (Sensitivity)** | Correct positive predictions / total actual positives    | How many actual positives are detected               |
+| **F1 Score**             | Harmonic mean of precision & recall                      | Balances precision and recall                        |
+| **Confusion Matrix**     | Counts of TP, FP, TN, FN                                 | Detailed error analysis                              |
+| **ROC AUC**              | Area under ROC curve (TPR vs FPR)                        | Measures model’s ability to distinguish classes      |
+
+### 2. Classification with Text data
+
+- Naive Bayes – fast, very strong baseline for text
+- Logistic Regression – often better than Naive Bayes
+- Gradient Boosting / Random Forest – good but slower to train
+- Linear SVM – performs well on sparse text features
+
+### 3. Regression
+
+- Gradient Boosting Regressor – generally top performer
+- Random Forest Regressor – fast, less sensitive to tuning
+- Ridge / Lasso Regression – if you suspect linear relationships
+- MLPRegressor – if you have many features and nonlinearities
+
+| Metric                             | What it measures                                               | Notes                                 |
+| ---------------------------------- | -------------------------------------------------------------- | ------------------------------------- |
+| **Mean Squared Error (MSE)**       | Average squared difference between predicted and actual values | Penalizes larger errors more          |
+| **Root Mean Squared Error (RMSE)** | Square root of MSE                                             | Same units as target, interpretable   |
+| **Mean Absolute Error (MAE)**      | Average absolute difference                                    | Less sensitive to outliers than MSE   |
+| **R-squared (R²)**                 | Square of correlation between predicted and real               | Ranges from 0 to 1 (higher is better) |
+| **Adjusted R-squared**             | R² adjusted for number of predictors                           | Useful for multiple regression        |
+
+### 4. Clustering (unsupervised)
+
+- KMeans – fast, scalable, default clustering method
+- DBSCAN – if clusters are irregularly shaped
+- Agglomerative Clustering – if you need hierarchy
+
+| Metric                                  | What it measures                                                  | Notes                                          |
+| --------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------- |
+| **Silhouette Score**                    | How well points fit their own cluster vs others                   | Ranges from -1 to +1 (higher better)           |
+| **Calinski-Harabasz Index**             | Ratio of between-cluster dispersion and within-cluster dispersion | Higher score means better clusters             |
+| **Davies-Bouldin Index**                | Average similarity between each cluster and its most similar one  | Lower score means better clusters              |
+| **Adjusted Rand Index (ARI)**           | Similarity between clustering and ground truth labels             | Requires true labels                           |
+| **Normalized Mutual Information (NMI)** | Mutual information normalized between 0 and 1                     | Measures shared information, needs true labels |
